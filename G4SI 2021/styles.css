@@ -38,9 +38,9 @@
 }
 
 .joy {
-    height: 215px;
+    height: 190px;
     width: 20px;
-    background:#7442e7;
+    background:#8c65e6;
     justify-self: center;
     margin-right: 5px;
     border-radius: 3px;
@@ -53,7 +53,7 @@
 
 
 .material {
-    height: 215px;
+    height: 190px;
     width: 20px;
     background:brown;
     justify-self: center;
@@ -61,7 +61,7 @@
     border-radius: 3px;
 }
 .materialBar {
-    height: 93.33333%;
+    height: 93.3333333%;
     width: 20px;
     background-color: lightblue;
 }
@@ -95,7 +95,7 @@
     display: flex;
     height: 250px;
     width: 220px;
-    background: #376c19;
+    background: #3d7c19;
     margin: 5px;
     border-radius: 8px;
     
@@ -150,6 +150,13 @@
     margin-bottom: 36px;
 }
 
+.endTurn {
+    height: 40px;
+    width: 68px;
+    margin: 3px;
+    background: rgb(226, 135, 135);
+}
+
 .select {
     height: 16px;
     width: 32px;
@@ -168,7 +175,7 @@
 .percent-bar {
     display: flex;
     flex-direction: column;
-    margin: 28px 0 0 auto;
+    margin: 0px 0 0 auto; 
 }
 
 .columnBox {
