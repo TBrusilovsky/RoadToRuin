@@ -4,8 +4,10 @@ let turn = 0;
 let ruin = 0;
 let selectedBuilding = 'na';
 let playerArray = new Array(4);
-playerArray[0] = {joy:100,resources:10,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
-playerArray[1] = {joy:100,resources:10,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
+let bombsDropped = 0;
+let totalPolution = 0;
+playerArray[0] = {joy:100,resources:149,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
+playerArray[1] = {joy:100,resources:100,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
 playerArray[2] = {joy:100,resources:10,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
 playerArray[3] = {joy:100,resources:10,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
 //string information format <owner><polution><building>
@@ -75,6 +77,7 @@ function clicked(event)
     {
         if (playerArray[turn-1].resources >= 25)
         {
+            bombsDropped +=1;
             playerArray[turn-1].resources -= 25;
             event.target.className = "tile fallout";
             temp = board[coords[0]][coords[1]]
@@ -137,12 +140,29 @@ function endOfRound()
     modifyJoy();
     generateResourses();
     increaseRuin();
+    checkWin();
     turn = 1;
 }
-
+function checkWin()
+{
+    for (let i = 0; i < 4;i++)
+    {
+        if (playerArray[i].resources >= 150)
+        {
+            window.alert("Player " + (i+1) + " wins! \nThis world has been raveged by your actions, but you have won.");
+            window.location.href = "start.html";
+        }
+    }
+}
 function increaseRuin()
 {
-
+    ruin += bombsDropped + (totalPolution/2400.0);
+    updateBar('ruin',0);
+    if (ruin >= 100)
+    {
+        window.alert("Game over, you all loose. \n Ruin has claimed this world.");
+        window.location.href = "start.html";
+    }
 }
 function modifyJoy()
 {
@@ -152,8 +172,9 @@ function generateResourses()
 {
     for (let i = 0 ;i <4 ;i++)
     {
+        totalPolution += 4*playerArray[i].factory;
         if (playerArray[i].factory > playerArray[i].population)
-        playerArray[i].resources += playerArray[i].factory - playerArray[i].population;
+        playerArray[i].resources += playerArray[i].population;
         else playerArray[i].resources += playerArray[i].factory;
 
         if (playerArray[i].joy < 40) playerArray[i].resources -= 1;
@@ -172,8 +193,13 @@ function updateBar(type, player)
             theBar.style.height = (1- newPercent)*100 + "%";
             let theNumber = document.getElementById(`mat${player}`);
             theNumber.innerText = playerArray[player-1].resources;
+            break;
         case 'ruin' :
-
+            let runBar = document.getElementById("ruinBar");
+            runBar.style.width = ruin + "%";
+            runBar = document.getElementById("ruinPer");
+            runBar.innerText = ruin + "%";
+            break;
         case 'joy' :
     }
 }
