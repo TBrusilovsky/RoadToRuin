@@ -78,7 +78,14 @@ function clicked(event)
             playerArray[turn-1].resources -= 25;
             event.target.className = "tile fallout";
             temp = board[coords[0]][coords[1]]
-            board[coords[0]][coords[1]] = turn + "" + temp.charAt(1) + "" + 'f';
+            board[coords[0]][coords[1]] = '0' + "" + 4 + "" + '0';
+            if (temp.charAt(0) != '0')
+            {
+                let effectedPlayer = temp.charAt(0);
+                if (temp.charAt(2) == 'r') playerArray[effectedPlayer-1].population -=1;
+                if (temp.charAt(2) == 'f') playerArray[effectedPlayer-1].factory -=1;
+                
+            }
             updateBar('res',turn);
             nextPlayer();
         }
