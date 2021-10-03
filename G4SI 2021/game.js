@@ -166,7 +166,21 @@ function increaseRuin()
 }
 function modifyJoy()
 {
+    for (let i = 0; i < 4;i++)
+    {
+        if (playerArray[i].factory > playerArray[i].population)
+        {
+            playerArray[i].joy -= (playerArray[i].factory - playerArray[i].population)/2.0
+        }
+        else playerArray[i].joy += playerArray[i].population - playerArray[i].factory;
+        playerArray[i].joy -= totalPolution/2400.0;
 
+        if ( playerArray[i].joy > 100)  playerArray[i].joy = 100;
+        if ( playerArray[i].joy < 0)  playerArray[i].joy = 0;
+        updateBar('joy',i);
+        
+
+    }
 }
 function generateResourses()
 {
@@ -201,14 +215,71 @@ function updateBar(type, player)
             runBar.innerText = ruin + "%";
             break;
         case 'joy' :
+            let joyBar =  document.getElementById(`joyBar${player+1}`);
+            joyBar.style.height = playerArray[player].joy;
+            joyBar = document.getElementById(`joy${player+1}`);
+            joyBar.innerText = playerArray[player].joy.toFixed(2);
     }
 }
 
 function showOnDisplay(words)
 {
-
+    let box = document.getElementById(`help${turn}`);
+    box.innerText = words;
 }
 
+function hover(event)
+{
+    if (event.target.classList.contains("selectFactory"))
+    {
+        showOnDisplay("Place Factory");
+    }
+    else if (event.target.classList.contains("selectResidence"))
+    {
+        showOnDisplay("Place Residence");
+    }
+    else if (event.target.classList.contains("unavailable"))
+    {
+        showOnDisplay("This action is locked. Buy upgrades to unlock it!");
+    }
+    else if (event.target.classList.contains("uf1"))
+    {
+        showOnDisplay("Factories cost 1 less to build.");
+    }
+    else if (event.target.classList.contains("uf2"))
+    {
+        showOnDisplay("Factories produce 20% more resources.");
+    }
+    else if (event.target.classList.contains("uf3"))
+    {
+        showOnDisplay("2x2 clusters of factories provide a bonus");
+    }
+    else if (event.target.classList.contains("ur1"))
+    {
+        showOnDisplay("Add better air filtration to residences.");
+    }
+    else if (event.target.classList.contains("ur2"))
+    {
+        showOnDisplay("Building on wastelands costs 1 unit less");
+    }
+    else if (event.target.classList.contains("ur3"))
+    {
+        showOnDisplay("Residences reduce the increase of ruin");
+    }
+    else if (event.target.classList.contains("un1"))
+    {
+        showOnDisplay("This uranium stuff looks neat...");
+    }
+    else if (event.target.classList.contains("un2"))
+    {
+        showOnDisplay("Unlock nuke action");
+    }
+    else if (event.target.classList.contains("un3"))
+    {
+        showOnDisplay("Reduce cost of nuke");
+    }
+
+}
 
 
 
