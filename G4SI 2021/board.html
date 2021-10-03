@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Road to Ruin</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script type="text/javascript" src="game.js">  </script>
+    <div class="boxBox">
+    <div class = "cardbox">
+        <div class = "playerCard activePlayer" id = "p1">
+            <div class ="columnBox">
+                <div class = "rowBox">
+                    <div class="factory-group button-col">
+                        <button class = "select selectFactory" id = "p1sf" onclick="selectBuilding(event, 'f')">F</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                    <div class="residence-group button-col">
+                        <button class = "select selectResidence" id = "p1sr" onclick="selectBuilding(event, 'r')">R</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                    <div class="nuke-group button-col">
+                        <button class = "unavailable select selectNuke" id = "p1sn" onclick="selectBuilding(event, 'n')">N</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                </div>
+                <div class="helpertext">Hi</div>
+            </div>
+            <div class="percent-bar">
+                <div class = "joy">
+                    <div id="joyBar1" class="joyBar"></div>
+                </div>
+                <a class = "joyPercent" id = "joy1">100%</a>
+            </div>
+            <div class="percent-bar">
+                <div class = "material">
+                    <div id="materialBar1" class="materialBar"></div>
+                </div>
+                <a class = "materialPercent"id = "mat1">5</a>
+            </div>
+        </div>
+
+        <div class = "playerCard" id = "p2">
+            <div class ="columnBox">
+                <div class = "rowBox">
+                    <div class="factory-group button-col">
+                        <button class = "select selectFactory" id = "p2sf" onclick="selectBuilding(event, 'f')">F</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                    <div class="residence-group button-col">
+                        <button class = "select selectResidence" id = "p2sr" onclick="selectBuilding(event, 'r')">R</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                    <div class="nuke-group button-col">
+                        <button class = "unavailable select selectNuke" id = "p2sn" onclick="selectBuilding(event, 'n')">N</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                </div>
+                <div class="helpertext">Hi</div>
+            </div>
+            <div class="percent-bar">
+                <div class = "joy">
+                    <div id="joyBar2" class="joyBar"></div>
+                </div>
+                <a class = "joyPercent" id = "joy2">100%</a>
+            </div>
+            <div class="percent-bar">
+                <div class = "material">
+                    <div id="materialBar2" class="materialBar"></div>
+                </div>
+                <a class = "materialPercent"id = "mat2">5</a>
+            </div>
+        </div>
+    </div>
+
+    <div class = "boardbox">
+        <div class= "board" id= "board">
+            
+        </div>
+            <div class = "ruin"><div id="ruinBar"></div><a class = "ruinPercent">0%</a></div> 
+    </div>
+
+    <div class = "cardbox">
+        <div class = "playerCard" id = "p3">
+            <div class ="columnBox">
+                <div class = "rowBox">
+                    <div class="factory-group button-col">
+                        <button class = "select selectFactory" id = "p3sf" onclick="selectBuilding(event, 'f')">F</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                    <div class="residence-group button-col">
+                        <button class = "select selectResidence" id = "p3sr" onclick="selectBuilding(event, 'r')">R</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                    <div class="nuke-group button-col">
+                        <button class = "unavailable select selectNuke" id = "p3sn" onclick="selectBuilding(event, 'n')">N</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                </div>
+                <div class="helpertext">Hi</div>
+            </div>
+            <div class="percent-bar">
+                <div class = "joy">
+                    <div id="joyBar3" class="joyBar"></div>
+                </div>
+                <a class = "joyPercent" id = "joy3">100%</a>
+            </div>
+            <div class="percent-bar">
+                <div class = "material">
+                    <div id="materialBar3" class="materialBar"></div>
+                </div>
+                <a class = "materialPercent"id = "mat3">5</a>
+            </div>
+        </div>
+        <div class = "playerCard notPlaying" id = "p4">
+            <div class ="columnBox">
+                <div class = "rowBox">
+                    <div class="factory-group button-col">
+                        <button class = "select selectFactory" id = "p4sf" onclick="selectBuilding(event, 'f')">F</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                    <div class="residence-group button-col">
+                        <button class = "select selectResidence" id = "p4sr" onclick="selectBuilding(event, 'r')">R</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                    <div class="nuke-group button-col">
+                        <button class = "unavailable select selectNuke" id = "p4sn" onclick="selectBuilding(event, 'n')">N</button>
+                        <button class="select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                        <button class="unavailable select upgrade"></button>
+                    </div>
+                </div>
+                <div class="helpertext">Hi</div>
+            </div>
+            <div class="percent-bar">
+                <div class = "joy">
+                    <div id="joyBar4" class="joyBar"></div>
+                </div>
+                <a class = "joyPercent" id = "joy4">100%</a>
+            </div>
+            <div class="percent-bar">
+                <div class = "material">
+                    <div id="materialBar4" class="materialBar"></div>
+                </div>
+                <a class = "materialPercent"id = "mat4">5</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
