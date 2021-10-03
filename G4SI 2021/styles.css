@@ -121,10 +121,13 @@
 .factory {
     background: rgb(134, 130, 130);
     background-image: url(Factory.png);
-    background-size: cover;
+    background-size: contain;
 }
 .residence {
     background: rgb(164, 207, 5);
+    background-image: url(residence.png);
+    background-size: contain;
+
 }
 .wasteland {
     background: #c7c10c;
@@ -184,8 +187,22 @@
     width: 120px;
     border-radius: 5px;
 }
+.selectFactory {
+    background-image: url(Factory.png);
+    background-size: contain;
+}
+.selectNude {
+    background-image: url(Radiation2.png);
+    background-size: contain;
+}
+.selectResidence {
+    background-image: url(residence.png);
+    background-size: contain;
+}
+
 
 .unavailable
 {
     background: black;
 }
+
