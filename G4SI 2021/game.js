@@ -281,6 +281,30 @@ function hover(event)
 
 }
 
+function upgrade(event)
+{
+    if (!event.target.classList.contains("unavailable"))
+    {
+        let theid = event.target.getAttribute('id');
+        event.target.classList.add("purchased");
+        console.log(theid);
+        if (theid.charAt(2) == 1)
+        {
+            playerArray[turn-1].resources -=5;
+            updateBar('res',turn);
+            let nextupgrade = document.getElementById(`${theid.charAt(0)}${theid.charAt(1)}21`);
+            nextupgrade.classList.remove("unavailable");
+
+        }  
+        else if (theid.charAt(2) == 2)
+        {
+            let nextupgrade = document.getElementById(`${theid.charAt(0)}${theid.charAt(1)}31`);
+            nextupgrade.classList.remove("unavailable");
+            
+        }  
+    }
+}
+
 
 
 window.addEventListener("load", setup); 
