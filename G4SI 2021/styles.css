@@ -119,7 +119,9 @@
     border-style: inset;
 }
 .factory {
-    background: rgb(39, 37, 37);
+    background: rgb(134, 130, 130);
+    background-image: url(Factory.png);
+    background-size: cover;
 }
 .residence {
     background: rgb(164, 207, 5);
