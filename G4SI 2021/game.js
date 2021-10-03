@@ -1,11 +1,13 @@
 let board;
 let players = 4;
 let turn = 0;
-let joy = [];
-let resources = [];
 let ruin = 0;
-let selectedBuilding = 0;
-
+let selectedBuilding = 'na';
+let playerArray = new Array(4);
+playerArray[0] = {joy:0,resources:50,population:0,upgradesF:0,upgradesR:0,upgradesN:0};
+playerArray[1] = {joy:0,resources:15,population:0,upgradesF:0,upgradesR:0,upgradesN:0};
+playerArray[2] = {joy:0,resources:15,population:0,upgradesF:0,upgradesR:0,upgradesN:0};
+playerArray[3] = {joy:0,resources:15,population:0,upgradesF:0,upgradesR:0,upgradesN:0};
 //string information format <owner><polution><building>
 //owner: 0, none. 1, p1... etc
 //polution - 0 defualt, 1 - 2 blackened level, 3 wasteland, 4 unusable
@@ -44,24 +46,54 @@ function clicked(event)
 {
     let coords = event.target.getAttribute('id');
     coords = coords.split(" ");
-    if (selectedBuilding == 0)
+    if (selectedBuilding == 'na')
     {
-        console.log(1);
+        showOnDisplay("You must select a structure to place");
     }
     else if (selectedBuilding == 'f')
     {
-        console.log(2);
-        event.target.className = "tile factory";
-        temp = board[coords[0]][coords[1]]
-        board[coords[0]][coords[1]] = turn + "" + temp.charAt(1) + "" + 'f';
+        if (playerArray[turn-1].resources >= 5)
+        {
+            playerArray[turn-1].resources -= 5;
+            event.target.className = "tile factory";
+            temp = board[coords[0]][coords[1]]
+            board[coords[0]][coords[1]] = turn + "" + temp.charAt(1) + "" + 'f';
+            nextPlayer();
+        }
+        else
+        {
+            showOnDisplay("You have insufficent resources.");
+        }
+    }
+    else if (selectedBuilding == 'n')
+    {
+        if (playerArray[turn-1].resources >= 25)
+        {
+            playerArray[turn-1].resources -= 25;
+            event.target.className = "tile fallout";
+            temp = board[coords[0]][coords[1]]
+            board[coords[0]][coords[1]] = turn + "" + temp.charAt(1) + "" + 'f';
+            nextPlayer();
+        }
+        else
+        {
+            showOnDisplay("You have insufficent resources.");
+        }
     }
     else{
-        console.log(3);
-        event.target.className = "tile residence";
-        temp = board[coords[0]][coords[1]]
-        board[coords[0]][coords[1]] = turn + "" + temp.charAt(1) + "" + 'r';
+        if (playerArray[turn-1].resources >= 2) 
+        {
+            playerArray[turn-1].resources -= 2;
+            event.target.className = "tile residence";
+            temp = board[coords[0]][coords[1]]
+            board[coords[0]][coords[1]] = turn + "" + temp.charAt(1) + "" + 'r';
+            nextPlayer();
+        }
+        else
+        {
+            showOnDisplay("You have insufficent resources.");
+        }
     }
-    nextPlayer();
 }
 
 function selectBuilding(event, type)
@@ -78,7 +110,7 @@ function nextPlayer()
     turn = turn + 1;
     if (turn > players)
         endOfRound();
-    selectedBuilding = 0;
+    selectedBuilding = 'na';
     theid = "p" + "" + turn;
     card = document.getElementById(theid);
     card.className = "playerCard activePlayer";
@@ -93,6 +125,11 @@ function endOfRound()
 }
 
 function increaseRuin()
+{
+
+}
+
+function showOnDisplay(words)
 {
 
 }

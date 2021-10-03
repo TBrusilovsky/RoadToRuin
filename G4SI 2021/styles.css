@@ -129,6 +129,9 @@
 }
 .fallout {
     background: black;
+    background-image: url(Raditation.png);
+    background-size: cover;
+    
 }
 
 .button-col {
