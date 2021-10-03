@@ -6,8 +6,8 @@ let selectedBuilding = 'na';
 let playerArray = new Array(4);
 let bombsDropped = 0;
 let totalPolution = 0;
-playerArray[0] = {joy:100,resources:149,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
-playerArray[1] = {joy:100,resources:100,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
+playerArray[0] = {joy:100,resources:10,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
+playerArray[1] = {joy:100,resources:10,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
 playerArray[2] = {joy:100,resources:10,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
 playerArray[3] = {joy:100,resources:10,population:0,factory:0,upgradesF:0,upgradesR:0,upgradesN:0};
 //string information format <owner><polution><building>
@@ -150,7 +150,7 @@ function checkWin()
         if (playerArray[i].resources >= 150)
         {
             window.alert("Player " + (i+1) + " wins! \nThis world has been raveged by your actions, but you have won.");
-            window.location.href = "start.html";
+            window.location.href = "index.html";
         }
     }
 }
@@ -161,7 +161,7 @@ function increaseRuin()
     if (ruin >= 100)
     {
         window.alert("Game over, you all loose. \n Ruin has claimed this world.");
-        window.location.href = "start.html";
+        window.location.href = "index.html";
     }
 }
 function modifyJoy()
