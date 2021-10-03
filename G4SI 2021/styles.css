@@ -8,7 +8,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
- 
+    
     
   }
   .boxBox {
@@ -85,8 +85,9 @@
     background: darkcyan;
     text-align: center;
     font-size: 1.7rem;
-    margin: auto;
+    margin: 10px;
     border-width: 1px;
+
   }
   .messagebox:hover {
     border-style: inset;
@@ -100,6 +101,15 @@
     border-radius: 8px;
     
 }   
+.titlebox {
+    display: flex;
+    flex-direction: column;
+    background: #3d7c19;
+    margin: 5px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.7rem;
+}
 
 .activePlayer {
     background: #88c763;
