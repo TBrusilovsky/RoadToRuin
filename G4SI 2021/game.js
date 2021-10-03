@@ -276,7 +276,7 @@ function hover(event)
     }
     else if (event.target.classList.contains("un3"))
     {
-        showOnDisplay("Reduce cost of nuke");
+        showOnDisplay("Improve the nuke");
     }
 
 }
@@ -286,19 +286,57 @@ function upgrade(event)
     if (!event.target.classList.contains("unavailable"))
     {
         let theid = event.target.getAttribute('id');
+
+        switch(theid.charAt(2))
+        {
+            case '1':
+                if (playerArray[turn-1].resources <5)
+                {
+                    showOnDisplay("You have insufficent materials.");
+                    return;
+                }
+                playerArray[turn-1].resources -=5;
+                updateBar('res',turn);
+                break;
+            case '2':
+                if (playerArray[turn-1].resources <10)
+                {
+                    showOnDisplay("You have insufficent materials.");
+                    return;
+                }
+                playerArray[turn-1].resources -=10;
+                updateBar('res',turn);
+                break;
+            case '3':
+                if (playerArray[turn-1].resources <25)
+                {
+                    showOnDisplay("You have insufficent materials.");
+                    return;
+                }
+                playerArray[turn-1].resources -=25;
+                updateBar('res',turn);
+
+        }
+
+
+
         event.target.classList.add("purchased");
         console.log(theid);
         if (theid.charAt(2) == 1)
         {
-            playerArray[turn-1].resources -=5;
-            updateBar('res',turn);
-            let nextupgrade = document.getElementById(`${theid.charAt(0)}${theid.charAt(1)}21`);
+    
+            let nextupgrade = document.getElementById(`${theid.charAt(0)}${theid.charAt(1)}2${theid.charAt(3)}`);
             nextupgrade.classList.remove("unavailable");
 
         }  
         else if (theid.charAt(2) == 2)
         {
-            let nextupgrade = document.getElementById(`${theid.charAt(0)}${theid.charAt(1)}31`);
+            if (theid.charAt(1) == 'n')
+            {
+                let unlock = document.getElementById("p"+turn+"sn");
+                unlock.classList.remove("unavailable");
+            }
+            let nextupgrade = document.getElementById(`${theid.charAt(0)}${theid.charAt(1)}3${theid.charAt(3)}`);
             nextupgrade.classList.remove("unavailable");
             
         }  
