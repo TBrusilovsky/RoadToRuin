@@ -6,44 +6,66 @@
 </head>
 
 <body>
+<h1> Rules for Road to Ruin</h1>
+<h2>Major Mechanics</h2>
+<dl>
+<dt><strong>Ruin</strong></dt>
+<dd> At the end of each round, the ruin bar will increase by a % based on the amount of factories and green space left on the map. If the ruin bar hits 100%, everyone looses.</dd>
+<br>
+<dt><strong>Resources</strong></dt> 
+<dd>At the end of each round, each player gains resources based on the number of factories they possess and upgrades related to factories.</dd>
+<br>
+<dt><strong>Joy</strong></dt> 
+<dd> Each player has a separate joy meter that changes at the end of each round. When joy is under 30%, loose 1 resources per round for every 5% under.</dd>
+<br>
+<dt><strong>Wasteland</strong></dt> 
+<dd>A square the has been blackened 3 times. Costs 2x as many resources to build on.</dd>
+</dl>
+<h2>Buildings</h2>
 
-Major Mechanics
+<h4>Buildings must be placed within 4 squares of an existing building you own.</h4>
+<dl>
+<dt><strong>Factories</strong></dt>
+<dd> One of the two main buildings of the game. By default, a single factory produces 1 unit per turn. When placed in a 2x2 square, they produce a base of 5 resources. Additionally, factories 'blacken the land' and produce ruin. At the end of each round, each square touching the factories (and if all of those are occupied the next circle around the factory) is 'blackened'. One each square has been blackened 3 times, it becomes 'wasteland'. You can not have more factories than you have population. If your population drops below your factory number, your newest factory becomes inactive.</dd>
+<br>
+<dt><strong>Residences</strong></dt>
+<dd> The other main building of the game. At the end of each round, each residence modifies your Joy based on the ratio of green squares to occupied squares surrounding the residence (the 8 squares around it). 5+ increases joy, 4 or less decreases joy. </dd>
+</dl>
+<br>
+<h2>Upgrades</h2>
+<h4>Each player has several upgrade paths available to them. The first upgrade costs 5 resources. The second costs 10. The third costs 25.</h4>
 
-Ruin - At the end of each round, the ruin bar will increase by a % based on the amount of factories and green space left on the map. If the ruin bar hits 100%, everyone looses.
+<dl>
+<h3>Interference Upgrades</h3>
+    <ol type="I">
+<li>  Build an additional block further from your buildings. </li>
+ <li>New action unlock, destruction. Pay 25 to destroy any square on the map. No buildings can be built in that square in the future, unoccupied surrounding squares become wasteland. </li>
+ <li>Whenever you destroy a player's buildings, that player looses 10% joy and 10% of their resources. </li>
+</ol>
+<h3>Industry Upgrades</h3>
+<ol type="I">
+<li>Factories cost 1 less to build </li>
+<li>Factories produce 20% more resources</li>
+<li>Unlock the 2x2 factory bonus. </li>
+</ol>
 
-Resources - At the end of each round, each player gains resources based on the number of factories they possess and upgrades related to factories.
+<h3>Earth Upgrades</h3> 
+<ol type="I"> 
+    <li>Residences only require 4+ to not loose joy.</li><li>Building on wastelands costs 1 unit less (after multiplication)</li>
+    <li>Residences reduce the increase of ruin.</li>
+</ol>
 
-Joy - Each player has a separate joy meter that changes at the end of each round. When joy is under 30%, loose 1 resources per round for every 5% under.
+<h2>Winning the game</h2>
+<h4>The first player to achieve 150 resources wins the game. If ruin ever hits 100%, everyone looses. </h4>
 
-Wasteland - A square the has been blackened 3 times. Costs 2x as many resources to build on.
-
-Buildings
-Buildings must be placed within 4 squares of an existing building you own.
-
-Factories - One of the two main buildings of the game. By default, a single factory produces 1 unit per turn. When placed in a 2x2 square, they produce a base of 5 resources. Additionally, factories 'blacken the land' and produce ruin. At the end of each round, each square touching the factories (and if all of those are occupied the next circle around the factory) is 'blackened'. One each square has been blackened 3 times, it becomes 'wasteland'. You can not have more factories than you have population. If your population drops below your factory number, your newest factory becomes inactive.
-
-Residence - The other main building of the game. At the end of each round, each residence modifies your Joy based on the ratio of green squares to occupied squares surrounding the residence (the 8 squares around it). 5+ increases joy, 4 or less decreases joy. 
-
-Upgrades 
-Each player has several upgrade paths available to them. The first upgrade costs 5 resources. The second costs 10. The third costs 25.
-Interference - 1. Build an additional block further from your buildings. 2. New action unlock, destruction. Pay 25 to destroy any square on the map. No buildings can be built in that square in the future, unoccupied surrounding squares become wasteland. 3. Whenever you destroy a player's buildings, that player looses 10% joy and 10% of their resources. 
-
-Industry - 1. Factories cost 1 less to build 2. Factories produce 20% more resources 3. Unlock the 2x2 factory bonus.
-
-Earth - 1. Residences only require 4+ to not loose joy. 2. Building on wastelands costs 1 unit less (after multiplication) 3. Residences reduce the increase of ruin.
-
-
-Winning the game
-The first player to achieve 150 resources wins the game. If ruin ever hits 100%, everyone looses. 
-
-Starting the game
+<h2>Starting the game</h2>
 Each player starts the game with 1 residence and 1 factory (placed within 4 squares of each other, the residence placed first)
 
-Playing each round
+<h2>Playing each round </h2>
 Each round, each player starts by buying any number of upgrades and activating any number of abilities (only ability currently is the attack). Then, they may place 1 building on any legal square.
 
-
-
+<br>
+<br>
 <button class="messagebox" onclick="window.location.href='start.html'" id="back">
     Back to main menu
 </button>
